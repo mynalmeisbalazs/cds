@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+void  act(int start[],int finish[], int acti[],int n){
+cout << acti[0] << " ";
+int cur=0;
+for(int j=1;j<n;j++){
+    if(finish[cur]<=start[j]){
+        cur=j;
+        cout<<acti[j] << " ";
+    }
+}
+}
+int main(){
+int start []={14,15,16,13,17};
+int finish[]={16,18,17,15,18};
+int acti[]={1,2,3,4,5};
+int n=5;
+for(int i=0;i<n-1;i++){
+    for(int j=i+1;j<n;j++){
+        if(finish[i]>finish[j]){
+            swap(finish[i],finish[j]);
+            swap(start[i],start[j]);
+            swap(acti[i],acti[j]);
+        }
+    }
+}
+act(start ,finish , acti , n);
+return 0;
+}
